@@ -12,6 +12,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the AI Travel App API!"}
+
+@app.get("/favicon.ico")
+def favicon():
+    return {"message": "Favicon not available"}
+
 @app.post("/generate-itinerary")
 def create_plan(request: TravelRequest):
     result = generate_itinerary(request.destination, request.days, request.preferences, request.budget)

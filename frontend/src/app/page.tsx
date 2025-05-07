@@ -27,7 +27,7 @@ export default function Home() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/generate-itinerary",
+        "http://127.0.0.1:8000/generate-itinerary", // Updated URL
         form
       );
       setItinerary(res.data.itinerary);
